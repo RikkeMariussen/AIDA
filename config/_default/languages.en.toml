@@ -10,9 +10,9 @@ isoCode = "en"
 rtl = false
 dateFormat = "2 January 2006"
 
-["params.author"]
-name = "Rikke"
-image = ""
-email = "cph-rm225@stud.ek.dk"
-headline = "Student at EK"
-links = []
+    [params.author]
+    name = "Rikke"
+    image = ""
+    email = "cph-rm225@stud.ek.dk"
+    headline = "Student at EK"
+    links = []
