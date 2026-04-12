@@ -1,0 +1,7 @@
+baseURL = 'https://rikkemariussen.github.io/AIDA/'
+locale = 'en-us'
+title = 'My New Hugo Project'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
