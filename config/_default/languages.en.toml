@@ -10,5 +10,5 @@ isoCode = "en"
 rtl = false
 dateFormat = "2 January 2006"
 
-["params.author"]
+[params.author]
 name = "Rikke"
