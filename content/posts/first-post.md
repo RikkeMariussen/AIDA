@@ -1,9 +1,13 @@
 ---
-title: My first post
+title: Markdown
 categories: ["tutorials"]
-tags: ["first", "tutorial"]
-date: 2026-04-10
+tags: ["tutorial"]
+date: 2026-02-10
 draft: false
+showauthor: true
+featureimage: ""
+authors:
+  - rikke
 ---
 
 ## My test run for a post 
