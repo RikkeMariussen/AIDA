@@ -2,6 +2,7 @@
 title: "About"
 date: 2026-02-04
 draft: false
+layout: "simple"
 ---
 
 Welcome to my play ground. This is where I share my projects, blog posts, and more about my work as a teacher, developer and designer.
