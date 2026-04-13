@@ -2,12 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Blowfish</title>
-    <link>http://localhost:1313/authors/</link>
+    <link>http://localhost:1313/AIDA/authors/</link>
     <description>Recent content in Authors on Blowfish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© 2026 Rikke</copyright>
-    <atom:link href="http://localhost:1313/authors/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>cph-rm225@stud.ek.dk (Rikke Mariussen)</managingEditor>
+    <webMaster>cph-rm225@stud.ek.dk (Rikke Mariussen)</webMaster>
+    <copyright>© 2026 Rikke Mariussen</copyright>
+    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/AIDA/authors/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Rikke</title>
+      <link>http://localhost:1313/AIDA/authors/rikke/</link>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <author>cph-rm225@stud.ek.dk (Rikke Mariussen)</author>
+      <guid>http://localhost:1313/AIDA/authors/rikke/</guid>
+      <description></description>
+      
+    </item>
     
   </channel>
 </rss>
