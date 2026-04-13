@@ -1,10 +1,9 @@
 ---
-title: Markdown
+title: Test post
 categories: ["tutorials"]
 tags: ["tutorial"]
 date: 2026-02-10
 draft: false
-showauthor: true
 featureimage: ""
 authors:
   - rikke
