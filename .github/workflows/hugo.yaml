@@ -103,3 +103,67 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  sync-dify:
+    runs-on: ubuntu-latest
+    needs: deploy
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Combine Hugo content into one file
+        env:
+          DIFY_DATASET_ID: ${{ secrets.DIFY_DATASET_ID }}
+          DIFY_API_KEY: ${{ secrets.DIFY_API_KEY }}
+        run: |
+          rm -f dify-knowledge.txt
+          touch dify-knowledge.txt
+
+          echo "# Portfolio Knowledge Base" >> dify-knowledge.txt
+          echo "" >> dify-knowledge.txt
+
+          find content -type f -name "*.md" | sort | while read file; do
+            echo "" >> dify-knowledge.txt
+            echo "--- FILE: $file ---" >> dify-knowledge.txt
+            cat "$file" >> dify-knowledge.txt
+            echo "" >> dify-knowledge.txt
+          done
+
+          if [ -d data ]; then
+            find data -type f -name "*.md" | sort | while read file; do
+              echo "" >> dify-knowledge.txt
+              echo "--- FILE: $file ---" >> dify-knowledge.txt
+              cat "$file" >> dify-knowledge.txt
+              echo "" >> dify-knowledge.txt
+            done
+          fi
+
+      - name: Delete existing documents from Dify knowledge base
+        env:
+          DIFY_DATASET_ID: ${{ secrets.DIFY_DATASET_ID }}
+          DIFY_API_KEY: ${{ secrets.DIFY_API_KEY }}
+        run: |
+          DOCS=$(curl -s --request GET \
+            --url "https://api.dify.ai/v1/datasets/${DIFY_DATASET_ID}/documents" \
+            --header "Authorization: Bearer ${DIFY_API_KEY}" \
+            | python3 -c "import sys, json; docs=json.load(sys.stdin).get('data', []); [print(d['id']) for d in docs]")
+
+          for DOC_ID in $DOCS; do
+            echo "Deleting document: $DOC_ID"
+            curl -s --request DELETE \
+              --url "https://api.dify.ai/v1/datasets/${DIFY_DATASET_ID}/documents/${DOC_ID}" \
+              --header "Authorization: Bearer ${DIFY_API_KEY}"
+            echo ""
+          done
+
+      - name: Upload new content to Dify
+        env:
+          DIFY_DATASET_ID: ${{ secrets.DIFY_DATASET_ID }}
+          DIFY_API_KEY: ${{ secrets.DIFY_API_KEY }}
+        run: |
+          curl --request POST \
+            --url "https://api.dify.ai/v1/datasets/${DIFY_DATASET_ID}/document/create-by-file" \
+            --header "Authorization: Bearer ${DIFY_API_KEY}" \
+            --form "file=@dify-knowledge.txt;type=text/plain" \
+            --form 'data={"indexing_technique":"high_quality","process_rule":{"mode":"automatic"}}'
