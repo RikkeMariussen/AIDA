@@ -5,6 +5,6 @@ draft: false
 layout: "simple"
 ---
 
-Welcome to my play ground. This is where I share my projects, blog posts, and more about my work as a teacher, developer and designer.
+Welcome to my play ground. This is where I share my projects, blog posts, and more about my work as a AP graduate computer science student.
 
-Expect to find a mix of content here, from detailed project descriptions and case studies to more informal reflections and ideas. I use this space to document my learning journey, share insights from my work, and connect with others in the field.
+Most of my posts will be written in danish, as it is a project for my elective course AI driven applications, where the posts will be the basis for my examination. 
